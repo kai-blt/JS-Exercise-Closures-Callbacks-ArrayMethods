@@ -99,10 +99,10 @@ finalScore(inning, 9) might return:
 
 function finalScore(inningFunc, inningNum){
   let innings = inningNum;
-  let home = inningFunc('Home');
-  let away = inningFunc('Away'); 
+  let home = inningFunc('Home'); //instantiate home team
+  let away = inningFunc('Away'); //instantiate away team
   
-  while (innings > 0) {
+  while (innings > 0) { //While there are innings left, gen score for home and away.
     home();
     away();
     innings--;
@@ -138,8 +138,21 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getScoreFunc, inningFunc, numInnings) {
+  let innings = numInnings;
+  let home = inningFunc('Home'); //instantiate home team
+  let away = inningFunc('Away'); //instantiate away team
+
+  while (numInnings > 0) {
+        
+    
+    innings--;
+  }
 }
 
 
+function getScore() {
+  console.log(``)
+}
+
+console.log(scoreboard(getScore, inning, 9));
