@@ -138,21 +138,24 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(getScoreFunc, inningFunc, numInnings) {
-  let innings = numInnings;
-  let home = inningFunc('Home'); //instantiate home team
-  let away = inningFunc('Away'); //instantiate away team
 
-  while (numInnings > 0) {
-        
-    
-    innings--;
-  }
+
+//inning func creates scores
+//getinningscore does what??????
+//number of innings played.
+
+function scoreboard(getScoreFunc, inningFunc, numInnings) {
+  let home = inningFunc('Home'); //instantiate home team
+  let away = inningFunc('Away'); //instantiate away team  
+  getScoreFunc(numInnings, home, away);
+  return `Final Score: ${home()} - ${away()}`
 }
 
 
-function getScore() {
-  console.log(``)
+function getScore(inning, team1, team2) {  
+  for (let i = 0; i <= inning; i++) {
+    console.log(`Inning ${i}: ${team1()} ${team2()}`);  
+  }
 }
 
 console.log(scoreboard(getScore, inning, 9));
