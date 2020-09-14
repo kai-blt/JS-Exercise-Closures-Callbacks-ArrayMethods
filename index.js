@@ -27,11 +27,19 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ * Counter 1 is an example of a closure. It retains memory of the count variable within the instance of
+ * the function counterMaker() stored in the function expression counter1.The count variable is only 
+ * accessible for alteration and returning through usage of the function expression. Counter 2 has
+ * its count variable declared in the global scope and thus it is accessible from the entire program. 
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ * Counter 1 does, see above.
+ * 
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *Counter 1 is preferable when you would like to guard (privatize) the count variable from being accessed
+ in any other means but through the function expression. Counter 2 is better if you need the variable to be
+ accessible anywhere in the program.
 */
 
 // counter1 code
