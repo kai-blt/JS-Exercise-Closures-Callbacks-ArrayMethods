@@ -112,6 +112,13 @@ addSix(21); // returns 27
 ```
 
 3. Research the differences between functional programming and object oriented programming. Then, describe the pros and cons of functional programming vs object-oriented programming. This is a common interview question and great practice!
+Object oriented programming is the paradigm that revolves around grouping data and functionality (methods) that would be utilized to act on that specific type of data together in one reusable and extendable object class container. Due to the grouping of data, it may be more easy for program maintenance due to information being more readily understandable to programmers looking at
+the overall codebase. Data is treated as mutable within objects, but as a result this makes it hard to ascertain what the original data may have been without walking through 
+the code. Objects may utilize many more lines of code than the functional programming style.
+
+Functional program revolves around the idea of separating out data and functionality. It emphasises using small modular bits of code in the form of functions to act on data and also tries to keep data pristine and immutable by never acting on the original set of data. Functions are structured in a way to be small and reusable and are heavily relied upon to change data in the necessary way without altering the original source. It is typically much more brief in terms of lines of code vs Object oriented style.  
+
+
 
 
 
