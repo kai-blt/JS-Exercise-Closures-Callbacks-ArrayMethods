@@ -43,8 +43,8 @@ Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
 
-Closure is the concept that a child function declared within a parent function has
-access to and retains a memory of data that is available to the the parent funtion's scope.
+***Closure is the concept that a child function declared within a parent function has
+access to and retains a memory of data that is available to the the parent funtion's scope.***
 
 
 2. Study the following code, then answer the questions below.
@@ -68,7 +68,8 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
-Closure has occured inside the instance of the personalDice() function that is saved
+
+***Closure has occured inside the instance of the personalDice() function that is saved  
 in the function expression dansRoll. The return statement of personalDice() is a function
 declared inside of personalDice() which then has access to (closes over or creates a closure)
 with the argument 'Dan' which is passed into the 'name' parameter when it is instantiated
@@ -76,12 +77,14 @@ with the dansRoll function expression.
 
 
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-The name 'Dan' would stay the same, but a random roll would be generated and saved in this instance of 
-personalDice().
+
+***The name 'Dan' would stay the same, but a random roll would be generated and saved in this instance of 
+personalDice().***
 
 
 c. What is the lexical scope of `newRoll`?
-The lexical scope of newRoll is held within the anonymous function in the return statement of personalDice()
+
+***The lexical scope of newRoll is held within the anonymous function in the return statement of personalDice()***
 
 
 ### Task 3 - Stretch Goals
