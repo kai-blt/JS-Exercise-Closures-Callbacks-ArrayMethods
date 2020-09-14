@@ -65,14 +65,18 @@ function counter2() {
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
 function inning(teamName){
-  let score = 0;
+  let score = 0;  
   return function() {
-    return `${teamName} scored: ` + (score += Math.ceil(Math.random() * 2));
+    let randomScore =  Math.ceil(Math.random() * 2); //Generate random score
+    score += randomScore;
+    return `${teamName}:` + score; //Add the random score the the tallied total score.
   }
 }
 
 const team1 = inning('Yankees');
 const team2 = inning('Cubs');
+console.log(team1());
+console.log(team1());
 console.log(team1());
 console.log(team2());
 
@@ -93,11 +97,24 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inningFunc, inningNum){
+  let innings = inningNum;
+  let home = inningFunc('Home');
+  let away = inningFunc('Away'); 
+  
+  while (innings > 0) {
+    home();
+    away();
+    innings--;
+  }
+  return {'Home' : home(), 'Away' : away()};
 }
+
+console.log(finalScore(inning, 9));
+
+
+
+
 
 /* Task 4: 
 
