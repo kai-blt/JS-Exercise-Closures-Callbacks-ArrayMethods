@@ -27,11 +27,19 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+ * Counter 1 is an example of a closure. It retains memory of the count variable within the instance of
+ * the function counterMaker() stored in the function expression counter1.The count variable is only 
+ * accessible for alteration and returning through usage of the function expression. Counter 2 has
+ * its count variable declared in the global scope and thus it is accessible from the entire program. 
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ * Counter 1 does, see above.
+ * 
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *Counter 1 is preferable when you would like to guard (privatize) the count variable from being accessed
+ in any other means but through the function expression. Counter 2 is better if you need the variable to be
+ accessible anywhere in the program.
 */
 
 // counter1 code
@@ -56,11 +64,24 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(teamName){
+  let score = 0;  
+  return function() {
+    let randomScore =  Math.ceil(Math.random() * 2); //Generate random score
+    score += randomScore;
+    return `${teamName}:` + score; //Add the random score the the tallied total score.
+  }
 }
+
+const team1 = inning('Yankees');
+const team2 = inning('Cubs');
+console.log(team1());
+console.log(team1());
+console.log(team1());
+console.log(team2());
+
+
+
 
 /* Task 3: finalScore()
 
@@ -76,11 +97,24 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(inningFunc, inningNum){
+  let innings = inningNum;
+  let home = inningFunc('Home'); //instantiate home team
+  let away = inningFunc('Away'); //instantiate away team
+  
+  while (innings > 0) { //While there are innings left, gen score for home and away.
+    home();
+    away();
+    innings--;
+  }
+  return {'Home' : home(), 'Away' : away()};
 }
+
+console.log(finalScore(inning, 9));
+
+
+
+
 
 /* Task 4: 
 
@@ -104,8 +138,24 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+
+
+//inning func creates scores
+//getinningscore does what??????
+//number of innings played.
+
+function scoreboard(getScoreFunc, inningFunc, numInnings) {
+  let home = inningFunc('Home'); //instantiate home team
+  let away = inningFunc('Away'); //instantiate away team  
+  getScoreFunc(numInnings, home, away);
+  return `Final Score: ${home()} - ${away()}`
 }
 
 
+function getScore(inning, team1, team2) {  
+  for (let i = 0; i <= inning; i++) {
+    console.log(`Inning ${i}: ${team1()} ${team2()}`);  
+  }
+}
+
+console.log(scoreboard(getScore, inning, 9));
